@@ -3,7 +3,7 @@
 # extension needs at runtime. Dev tooling, docs, and the catalog cache are excluded.
 #
 # Usage: ./package.sh
-# Output: dist/url-param-cleaner-v<version>.zip
+# Output: dist/bareURL-v<version>.zip
 set -euo pipefail
 
 cd "$(dirname "$0")"
@@ -24,7 +24,7 @@ for f in "${SHIP[@]}"; do
 done
 
 VERSION="$(node -p "require('./manifest.json').version")"
-OUT="dist/url-param-cleaner-v${VERSION}.zip"
+OUT="dist/bareURL-v${VERSION}.zip"
 
 mkdir -p dist
 rm -f "$OUT"

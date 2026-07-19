@@ -47,7 +47,7 @@ The extension loaded and enabled — zero-JS, applied by Chrome itself:
 ## What's in the box
 
 ```
-url-param-cleaner/
+bareURL/
 ├── manifest.json          # MV3 manifest — the only permissions are
 │                          #   declarativeNetRequest + host access
 ├── rules.json             # ONE static rule: strip ~130 known params from
@@ -66,18 +66,31 @@ JavaScript**, this grants *rule application only* — it does **not** let the
 extension read page content or network traffic the way `<all_urls>` plus a
 content script would. This is the harmless kind of `<all_urls>`.
 
-## Install (once)
+## Install
 
-1. Clone this repo (or download the ZIP and unzip it):
-   ```
-   git clone https://github.com/ngnnah/url-param-cleaner.git
-   ```
-2. Open `chrome://extensions`.
-3. Turn on **Developer mode** (top-right).
-4. Click **Load unpacked** and select the `url-param-cleaner/` folder.
+Two ways, depending on how much you want to lean on an external store.
 
-That's it. No account, no store, no auto-update. Works in any Chromium browser
-(Chrome, Edge, Brave, Arc, …).
+### Option A — Load unpacked from GitHub  *(recommended: no store, no auto-update)*
+
+The most transparent path — you run exactly the files in this repo, and nothing
+can silently update or change hands later.
+
+1. Download the latest [**`bareURL-v1.0.0.zip`**](https://github.com/ngnnah/bareURL/releases/latest)
+   and unzip it. *(Or `git clone https://github.com/ngnnah/bareURL.git`.)*
+2. Open `chrome://extensions` and turn on **Developer mode** (top-right).
+3. Click **Load unpacked** and select the unzipped folder.
+
+No account, no auto-update. Works in any Chromium browser (Chrome, Edge, Brave, Arc, …).
+
+### Option B — Chrome Web Store  *(easiest: one click + auto-updates)*
+
+*Listing pending review — the link will go here once it's live.*
+
+One-click install with automatic updates. It's the **same code** as this repo, but
+be aware of the tradeoff: installing from any store re-introduces the auto-update /
+vendor-transfer surface that Option A avoids (see
+[Why this instead of a Web Store extension](#why-this-instead-of-a-web-store-extension)).
+If that matters to you, prefer Option A.
 
 ## Verify it works
 
