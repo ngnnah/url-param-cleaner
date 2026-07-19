@@ -1,13 +1,13 @@
-# Privacy Policy — URL Param Cleaner
+# Privacy Policy — bareURL
 
 _Last updated: 2026-07-19_
 
-**Short version: URL Param Cleaner collects nothing, stores nothing, and sends
+**Short version: bareURL collects nothing, stores nothing, and sends
 nothing anywhere. It has no servers, no analytics, and no account.**
 
 ## What the extension does
 
-URL Param Cleaner removes known tracking, affiliate, and referral query
+bareURL removes known tracking, affiliate, and referral query
 parameters (such as `utm_source`, `fbclid`, `gclid`, `mc_eid`) from the URLs of
 pages you navigate to. It does this using Chrome's built-in
 `declarativeNetRequest` API and a **static list of rules** bundled inside the
