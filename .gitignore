@@ -16,5 +16,6 @@ _metadata/
 # Build output (regenerate with ./package.sh)
 dist/
 
-# Internal handoff/planning notes — not for the public repo
-plan.md
+# Personal / dev-only material (planning notes, store-submission copy & assets)
+# — kept out of the public repo
+_private/
