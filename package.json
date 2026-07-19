@@ -1,0 +1,12 @@
+{
+  "name": "url-param-cleaner",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Zero-JavaScript Chrome MV3 extension that strips tracking/affiliate/referral query params. Dev tooling only; Chrome loads manifest.json + rules.json.",
+  "scripts": {
+    "test": "node --test tools/test-rules.mjs",
+    "generate": "node tools/generate-rules.mjs"
+  },
+  "license": "MIT"
+}

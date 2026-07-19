@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Editor / scratch
+*.swp
+.vscode/
+scratchpad/
+
+# Chrome-generated when the unpacked extension is loaded (build artifact)
+_metadata/
+
+# Build output (regenerate with ./package.sh)
+dist/
