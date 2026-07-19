@@ -18,4 +18,4 @@ dist/
 
 # Personal / dev-only material (planning notes, store-submission copy & assets)
 # — kept out of the public repo
-_private/
+.private/
