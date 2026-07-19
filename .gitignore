@@ -15,3 +15,6 @@ _metadata/
 
 # Build output (regenerate with ./package.sh)
 dist/
+
+# Internal handoff/planning notes — not for the public repo
+plan.md
