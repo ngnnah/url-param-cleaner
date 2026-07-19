@@ -39,11 +39,15 @@ const CATALOG_URL =
 // Keyed by the raw catalog entry (after the leading "(?:%3F)?" prefix is
 // stripped). Each maps to the concrete literal member params we ship.
 const FAMILY_EXPANSIONS = {
+  // NOTE: DNR removeParams is exact-match (no wildcards), so the open-ended
+  // `utm_*` namespace must be enumerated. `utm_` is tracking by convention
+  // (Urchin), so any real variant we observe is safe to add here.
   'utm(?:_[a-z_]*)?': [
     'utm', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term',
     'utm_content', 'utm_id', 'utm_name', 'utm_cid', 'utm_reader',
     'utm_referrer', 'utm_social', 'utm_social-type', 'utm_brand',
     'utm_source_platform', 'utm_creative_format', 'utm_marketing_tactic',
+    'utm_placement', 'utm_pubreferrer', 'utm_swu',
   ],
   'mtm(?:_[a-z_]*)?': [
     'mtm_source', 'mtm_medium', 'mtm_campaign', 'mtm_keyword',

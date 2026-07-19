@@ -55,6 +55,7 @@ test('removeParams has no duplicates and is sorted (case-insensitive)', () => {
 test('key tracker/newsletter params are present', () => {
   for (const p of [
     'utm', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
+    'utm_placement',     // ad/newsletter placement — reported still-dirty (Yahoo)
     'fbclid', 'gclid', 'msclkid', 'mc_eid', 'igshid', 'ttclid', 'yclid',
     '_bhlid',            // beehiiv (Superhuman newsletter) — the reported gap
     'ck_subscriber_id',  // ConvertKit / Kit
@@ -67,6 +68,7 @@ test('common functional params are NOT stripped', () => {
   for (const p of [
     'id', 'page', 'q', 'query', 'search', 'color', 'size', 'sort', 'lang',
     'v', 'status', 'category', 'sku', 'code', 'token',
+    'user_id',  // generic functional identifier — stripping it globally breaks sites
   ]) {
     assert.ok(!removeSet.has(p), `functional param "${p}" must NOT be stripped`);
   }
@@ -75,6 +77,12 @@ test('common functional params are NOT stripped', () => {
 // ── End-to-end URL cases (data-driven) ─────────────────────────────────────────
 // Each case: [name, inputURL, expectedCleanURL]. expected === input means no-op.
 const CASES = [
+  // Yahoo Finance newsletter link: utm_placement stripped, functional user_id kept.
+  [
+    'yahoo finance: utm_placement stripped, user_id kept, article path intact',
+    'https://finance.yahoo.com/markets/live/stock-market-today-thursday-july-16-dow-sp-500-nasdaq-chip-stocks-slide-103116735.html?utm_placement=newsletter&user_id=68061e83f6512e52190e2585',
+    'https://finance.yahoo.com/markets/live/stock-market-today-thursday-july-16-dow-sp-500-nasdaq-chip-stocks-slide-103116735.html?user_id=68061e83f6512e52190e2585',
+  ],
   // The three real URLs the user reported still-dirty.
   [
     'x.com: utm_* + _bhlid all stripped, /status/<id> path kept',
